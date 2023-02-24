@@ -19,6 +19,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**Classe XmlParser. */
 public class XmlParser {
   private DocumentBuilder builder;
   private XPath xpath;
@@ -29,15 +30,15 @@ public class XmlParser {
   }
 
   /**
-   * Este método realiza o parse um arquivo XML que contém a resposta 
-   * de uma execução do cálculo de Coverage do JaCoCo.
-   * 
-   * <p> A função retorna tanto a quantidade não coberta por testes do código 
-   * como a porcentagem. </p>
-   * 
-   * @param file o arquivo de cobertura de teste.
-   * @return um mapa, contendo o percentual de cobertura dos testes.
-   */
+  * Este método realiza o parse um arquivo XML que contém a resposta 
+  * de uma execução do cálculo de Coverage do JaCoCo.
+  * 
+  * <p> A função retorna tanto a quantidade não coberta por testes do código 
+  * como a porcentagem. </p>
+  *
+  *  @param file o arquivo de cobertura de teste. 
+  *  @return um mapa, contendo o percentual de cobertura dos testes.
+  */
   public Map<String, Object> parseToMap(File file)
       throws SAXException, ParserConfigurationException, IOException, XPathExpressionException {
 
