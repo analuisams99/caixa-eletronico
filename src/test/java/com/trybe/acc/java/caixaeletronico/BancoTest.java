@@ -1,5 +1,6 @@
 package com.trybe.acc.java.caixaeletronico;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,8 @@ class BancoTest {
   @Test
   @DisplayName("1 - Testa o gerador de número único para nova conta.")
   void gerarNumeroNovaContaTest() {
-    fail("Não implementado");
+    Banco banco = new Banco();
+    assertTrue(banco.gerarNumeroNovaConta().length() == 10);
   }
 
   @Test
