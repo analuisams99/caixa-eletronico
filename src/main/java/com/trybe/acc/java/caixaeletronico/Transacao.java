@@ -12,4 +12,9 @@ public class Transacao {
     this.quantia = quantia;
     this.descricao = descricao;
   }
+
+  public double getQuantia() {
+    return quantia;
+  }
+  
 }
