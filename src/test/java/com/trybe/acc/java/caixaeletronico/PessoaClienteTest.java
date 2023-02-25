@@ -29,8 +29,10 @@ class PessoaClienteTest {
   @Test
   @DisplayName("14 - Testa o método retornar saldo de uma conta específica da pessoa cliente.")
   void retornarSaldoContaEspecificaTest() {
-    fail("Não implementado");
-
+    PessoaCliente pessoaCliente = new PessoaCliente("Cliente Teste", "12345678901", "=senha1=");
+    Conta conta = new Conta("Cliente Teste", pessoaCliente, new Banco());
+    pessoaCliente.adicionarConta(conta);
+    assertEquals(0.0, pessoaCliente.retonarSaldoContaEspecificada(0));
   }
 
 

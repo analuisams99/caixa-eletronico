@@ -39,4 +39,8 @@ public class PessoaCliente {
     return cpf;
   }
   
+  public double retonarSaldoContaEspecificada(int indice) {
+    return contas.get(indice).retornarSaldo(); 
+  }
+  
 }
