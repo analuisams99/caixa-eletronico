@@ -1,5 +1,6 @@
 package com.trybe.acc.java.caixaeletronico;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.DisplayName;
@@ -28,8 +29,11 @@ class ContaTest {
   @Test
   @DisplayName("8 - Testa o método retornar resumo está retornando uma string com os valores corretamente.")
   void retornarResumoContaTest() {
-    fail("Não implementado");
-
+    PessoaCliente pessoaCliente = new PessoaCliente("Cliente Teste", "12345678901", "=senha1=");
+    Conta conta = new Conta("Poupança", pessoaCliente, new Banco());
+    conta.adicionarTransacao(3000, "Transação recebida com sucesso!");
+    pessoaCliente.adicionarConta(conta);
+    assertTrue(conta.retornarResumoConta().contains("Resumo das Contas da pessoa "));
   }
 
   @Test
@@ -45,6 +49,7 @@ class ContaTest {
     PessoaCliente pessoaCliente = new PessoaCliente("Cliente Teste", "12345678901", "=senha1=");
     Banco banco = new Banco();
     Conta conta = new Conta("Poupança", pessoaCliente, banco);
+    System.out.println(conta.getIdConta());
     assertEquals(10, conta.getIdConta().length());
   }
 

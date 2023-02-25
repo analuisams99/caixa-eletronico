@@ -37,4 +37,21 @@ public class Conta {
     }
     return saldo;
   }
+  
+  /**Método que retorna o resumo da Conta. */
+  public String retornarResumoConta() {
+    String mensagemResumo = "Pessoa não tem conta";
+    String mensagemComplementar = "";
+    int index = 0;
+    if (pessoaCliente.contas.size() > 0) {
+      mensagemResumo = "Resumo das Contas da pessoa " + pessoaCliente.nomeCompleto + ":\n";
+      for (Conta conta : pessoaCliente.contas) {
+        mensagemComplementar += "\n"
+                + (index += 1) + ") " + conta.idConta + " : " + "R$" 
+                + conta.retornarSaldo() + " : " + conta.tipoConta + "\n"
+                + "\n";
+      }
+    }
+    return mensagemResumo + mensagemComplementar;
+  }
 }
