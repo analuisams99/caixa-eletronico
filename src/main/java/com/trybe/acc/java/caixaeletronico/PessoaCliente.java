@@ -21,6 +21,14 @@ public class PessoaCliente {
   @Override
   public String toString() {
     return "Nova pessoa cliente " + nomeCompleto + " com CPF: " + cpf + " criada!";
+  }  
+  
+  public void adicionarConta(Conta conta) {
+    this.contas.add(conta);
+  }
+  
+  public int retornaNumeroDeContas() {
+    return contas.size();
   }
   
   public boolean validarSenha(String senha) {
