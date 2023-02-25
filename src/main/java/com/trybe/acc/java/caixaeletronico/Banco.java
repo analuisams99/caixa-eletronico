@@ -11,6 +11,7 @@ public class Banco {
   
   /**Método que gera 10 números aleatórios e os concatena no atributo novaConta. */
   private static void gerarNumerosAleatorios() {
+    novoIdConta = "";
     Random random = new Random();
     for (int i = 0; i < 10; i += 1) {
       int numeroAleatorio = random.nextInt(10);
