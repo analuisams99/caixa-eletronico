@@ -13,7 +13,7 @@ class ContaTest {
   void construtorTest() {
     Conta conta = new Conta("Poupança", new PessoaCliente("Cliente Teste", "12345678901", "=senha1="), new Banco());
     assertEquals("Poupança", conta.tipoConta);
-    assertEquals("12345678901", conta.pessoaCliente.getCpf());
+    assertEquals("12345678901", conta.getPessoaCliente().getCpf());
   }
 
   @Test
@@ -40,8 +40,8 @@ class ContaTest {
   @Test
   @DisplayName("10 - Testa o método Getter do atributo idConta está retornando.")
   void getIdContaTest() {
-    fail("Não implementado");
-
+    Conta conta = new Conta("Poupança", new PessoaCliente("Cliente Teste", "12345678901", "=senha1="), new Banco());
+    assertEquals(10, conta.getIdConta().length());
   }
 
   @Test

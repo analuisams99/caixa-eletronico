@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**Classe Conta. */
 public class Conta {
   protected String tipoConta;
-  protected String idConta;
-  protected PessoaCliente pessoaCliente;
+  private String idConta;
+  private PessoaCliente pessoaCliente;
   protected ArrayList<Transacao> transacoes = new ArrayList<Transacao>();
   
   /**Método construtor da classe Conta. */
@@ -14,5 +14,13 @@ public class Conta {
     this.tipoConta = tipoConta;
     this.pessoaCliente = pessoaCliente;
     this.idConta = banco.gerarNumeroNovaConta();
+  }
+
+  public String getIdConta() {
+    return idConta;
+  }
+
+  public PessoaCliente getPessoaCliente() {
+    return pessoaCliente;
   }
 }
