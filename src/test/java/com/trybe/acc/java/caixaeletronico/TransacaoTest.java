@@ -28,7 +28,7 @@ class TransacaoTest {
   @DisplayName("23 - Testa o método retornar resumo transacao.")
   void retornarResumoTransacaoTest() {
     Transacao transacao = new Transacao(100.0, "Teste Transação");
-    assertTrue(transacao.retornarResumoTransacao().contains("Foi feita a transação na quantia de " + transacao.getQuantia()));
+    assertTrue(transacao.retornarResumoTransacao().contains(" -------- " + transacao.descricao));
   }
 
   @Test
