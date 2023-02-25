@@ -54,4 +54,14 @@ public class Conta {
     }
     return mensagemResumo + mensagemComplementar;
   }
+  
+  /**Método que imprime no console o extrato. */
+  public void retornarExtrato() {
+    String mensagem = "Extrato da conta" + getIdConta() + "\n";
+    String mensagemResumoTransacao = "";
+    for (Transacao transacao : transacoes) {
+      mensagemResumoTransacao = "\n" + transacao.retornarResumoTransacao() + "\n";
+    }
+    System.out.println(mensagem + mensagemResumoTransacao);
+  }
 }
