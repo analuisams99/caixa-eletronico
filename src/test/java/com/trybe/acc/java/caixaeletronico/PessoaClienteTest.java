@@ -1,5 +1,6 @@
 package com.trybe.acc.java.caixaeletronico;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.DisplayName;
@@ -61,9 +62,8 @@ class PessoaClienteTest {
   @Test
   @DisplayName("19 - Testa o método retornar resumo contas.")
   void retornarResumoContasTest() {
-    fail("Não implementado");
-
-
+    PessoaCliente pessoaCliente = new PessoaCliente("Cliente Teste", "12345678901", "=senha1=");
+    assertTrue(pessoaCliente.validarSenha("=senha1="));
   }
 
   @Test

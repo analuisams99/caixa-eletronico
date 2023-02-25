@@ -22,6 +22,10 @@ public class PessoaCliente {
   public String toString() {
     return "Nova pessoa cliente " + nomeCompleto + " com CPF: " + cpf + " criada!";
   }
+  
+  public boolean validarSenha(String senha) {
+    return senha == this.senha && true;
+  }
 
   public String getCpf() {
     return cpf;
