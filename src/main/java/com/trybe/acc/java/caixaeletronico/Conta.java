@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**Classe Conta. */
 public class Conta {
   protected String tipoConta;
-  private String idConta;
+  protected String idConta;
   protected PessoaCliente pessoaCliente;
   protected ArrayList<Transacao> transacoes = new ArrayList<Transacao>();
   

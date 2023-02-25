@@ -25,7 +25,7 @@ public class Banco {
   public String gerarNumeroNovaConta() {
     gerarNumerosAleatorios();
     for (Conta conta : contas) {
-      if (novaConta == "  ") {
+      if (novaConta == conta.idConta) {
         gerarNumerosAleatorios();
         break;
       } 
