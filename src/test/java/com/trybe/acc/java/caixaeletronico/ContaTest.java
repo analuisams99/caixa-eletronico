@@ -19,8 +19,10 @@ class ContaTest {
   @Test
   @DisplayName("7 - Testa o método adicionar transação e retornar saldo da conta.")
   void adicionarTransacaoTestRetornarSaldoTest() {
-    fail("Não implementado");
-
+    Conta conta = new Conta("Poupança", new PessoaCliente("Cliente Teste", "12345678901", "=senha1="), new Banco());
+    conta.adicionarTransacao(3000, "Transação recebida com sucesso!");
+    conta.adicionarTransacao(-500, "Saque feito com sucesso!");
+    assertEquals(2500, conta.retornarSaldo());
   }
 
   @Test
@@ -40,7 +42,9 @@ class ContaTest {
   @Test
   @DisplayName("10 - Testa o método Getter do atributo idConta está retornando.")
   void getIdContaTest() {
-    Conta conta = new Conta("Poupança", new PessoaCliente("Cliente Teste", "12345678901", "=senha1="), new Banco());
+    PessoaCliente pessoaCliente = new PessoaCliente("Cliente Teste", "12345678901", "=senha1=");
+    Banco banco = new Banco();
+    Conta conta = new Conta("Poupança", pessoaCliente, banco);
     assertEquals(10, conta.getIdConta().length());
   }
 

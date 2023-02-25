@@ -23,4 +23,18 @@ public class Conta {
   public PessoaCliente getPessoaCliente() {
     return pessoaCliente;
   }
+  
+  public void adicionarTransacao(double quantia, String descricao) {
+    Transacao novaTransacao = new Transacao(quantia, descricao);
+    transacoes.add(novaTransacao);
+  }
+  
+  /**Método que retorna o saldo da conta. */
+  public double retornarSaldo() {
+    double saldo = 0;
+    for (Transacao transacao : transacoes) {
+      saldo += transacao.getQuantia();
+    }
+    return saldo;
+  }
 }
