@@ -39,8 +39,12 @@ public class PessoaCliente {
     return cpf;
   }
   
-  public double retonarSaldoContaEspecificada(int indice) {
+  public double retornarSaldoContaEspecifica(int indice) {
     return contas.get(indice).retornarSaldo(); 
+  }
+  
+  public String retornarIdContaEspecifica(int indice) {
+    return contas.get(indice).getIdConta();
   }
   
 }

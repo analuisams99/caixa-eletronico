@@ -32,15 +32,17 @@ class PessoaClienteTest {
     PessoaCliente pessoaCliente = new PessoaCliente("Cliente Teste", "12345678901", "=senha1=");
     Conta conta = new Conta("Cliente Teste", pessoaCliente, new Banco());
     pessoaCliente.adicionarConta(conta);
-    assertEquals(0.0, pessoaCliente.retonarSaldoContaEspecificada(0));
+    assertEquals(0.0, pessoaCliente.retornarSaldoContaEspecifica(0));
   }
 
 
   @Test
   @DisplayName("15 - Testa o método retornar id de uma conta específica da pessoa cliente.")
   void retornarIdContaEspecificaTest() {
-    fail("Não implementado");
-
+    PessoaCliente pessoaCliente = new PessoaCliente("Cliente Teste", "12345678901", "=senha1=");
+    Conta conta = new Conta("Cliente Teste", pessoaCliente, new Banco());
+    pessoaCliente.adicionarConta(conta);
+    assertTrue(pessoaCliente.contas.get(0).getIdConta() == pessoaCliente.retornarIdContaEspecifica(0));
   }
 
   @Test
