@@ -5,11 +5,23 @@ import java.util.Random;
 
 /**Classe Banco. */
 public class Banco {
-  private ArrayList<PessoaCliente> pessoasClientes = new ArrayList<PessoaCliente>();
+  protected ArrayList<PessoaCliente> pessoasClientes = new ArrayList<PessoaCliente>();
   private ArrayList<Conta> contas = new ArrayList<Conta>();
-  public static String novaConta = "";
+  protected static String novaConta = "";
   
-  /**Método de gerar numero, de uma nova conta, de 10 digitos. */
+  /**Método que gera 10 números aleatórios e os concatena no atributo novaConta. */
+  private static void gerarNumerosAleatorios() {
+    Random random = new Random();
+    for (int i = 0; i < 10; i += 1) {
+      int numeroAleatorio = random.nextInt(10);
+      novaConta += Integer.toString(numeroAleatorio);
+    }
+  }
+
+  /**
+   *  Método que verifica se a conta existe no array de contas
+   *  e, se não existir, gera uma nova conta de 10 digitos. 
+  */
   public String gerarNumeroNovaConta() {
     gerarNumerosAleatorios();
     for (Conta conta : contas) {
@@ -21,11 +33,10 @@ public class Banco {
     return novaConta;
   }
   
-  private static void gerarNumerosAleatorios() {
-    Random random = new Random();
-    for (int i = 0; i < 10; i += 1) {
-      int numeroAleatorio = random.nextInt(10);
-      novaConta += Integer.toString(numeroAleatorio);
-    }
+  /**Método que adiciona uma nova pessoa cliente no array do atributo pessoasClientes. */
+  public PessoaCliente adicionarPessoaCliente(String nome, String cpf, String senha) {
+    PessoaCliente cliente = new PessoaCliente(nome, cpf, senha);
+    pessoasClientes.add(cliente);
+    return cliente;
   }
 }
