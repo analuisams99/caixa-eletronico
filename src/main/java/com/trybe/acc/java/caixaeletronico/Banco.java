@@ -7,14 +7,14 @@ import java.util.Random;
 public class Banco {
   protected ArrayList<PessoaCliente> pessoasClientes = new ArrayList<PessoaCliente>();
   private ArrayList<Conta> contas = new ArrayList<Conta>();
-  protected static String novaConta = "";
+  protected static String novoIdConta = "";
   
   /**Método que gera 10 números aleatórios e os concatena no atributo novaConta. */
   private static void gerarNumerosAleatorios() {
     Random random = new Random();
     for (int i = 0; i < 10; i += 1) {
       int numeroAleatorio = random.nextInt(10);
-      novaConta += Integer.toString(numeroAleatorio);
+      novoIdConta += Integer.toString(numeroAleatorio);
     }
   }
 
@@ -25,12 +25,12 @@ public class Banco {
   public String gerarNumeroNovaConta() {
     gerarNumerosAleatorios();
     for (Conta conta : contas) {
-      if (novaConta == conta.getIdConta()) {
+      if (novoIdConta == conta.getIdConta()) {
         gerarNumerosAleatorios();
         break;
       } 
     }
-    return novaConta;
+    return novoIdConta;
   }
   
   /**Método que adiciona uma nova pessoa cliente no array do atributo pessoasClientes. */
@@ -40,8 +40,8 @@ public class Banco {
     return cliente;
   }
   
-  public void adicionarConta(Conta novaConta) {
-    contas.add(novaConta);
+  public void adicionarConta(Conta conta) {
+    contas.add(conta);
   }
   
   /**Método que valida cpf e senha da pessoa cliente. */
