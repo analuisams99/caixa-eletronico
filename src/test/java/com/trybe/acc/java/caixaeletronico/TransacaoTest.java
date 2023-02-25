@@ -1,5 +1,6 @@
 package com.trybe.acc.java.caixaeletronico;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.DisplayName;
@@ -27,8 +28,8 @@ class TransacaoTest {
   @Test
   @DisplayName("23 - Testa o método retornar resumo transacao.")
   void retornarResumoTransacaoTest() {
-    fail("Não implementado");
-
+    Transacao transacao = new Transacao(100.0, "Teste Transação");
+    assertTrue(transacao.retornarResumoTransacao().contains("Foi feita a transação na quantia de " + transacao.getQuantia()));
   }
 
   @Test

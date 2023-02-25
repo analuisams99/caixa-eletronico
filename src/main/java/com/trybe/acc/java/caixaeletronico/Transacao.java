@@ -17,4 +17,11 @@ public class Transacao {
     return quantia;
   }
   
+  /**Método que retorna o resumo da Transação. */
+  public String retornarResumoTransacao() {
+    return "Foi feita a transação na quantia de " + quantia + "\n" 
+        + ". Com a descrição: " + descricao + ". \n" 
+        + "Na data: " + instante;
+  }
+  
 }
