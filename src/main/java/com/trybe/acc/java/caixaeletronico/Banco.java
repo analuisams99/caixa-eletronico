@@ -39,4 +39,20 @@ public class Banco {
     pessoasClientes.add(cliente);
     return cliente;
   }
+  
+  public void adicionarConta(Conta novaConta) {
+    contas.add(novaConta);
+  }
+  
+  /**Método que valida cpf e senha da pessoa cliente. */
+  public PessoaCliente pessoaClienteLogin(String cpf, String senha) {
+    PessoaCliente pessoaCliente = null;
+    for (PessoaCliente pessoa : pessoasClientes) {
+      if (pessoa.getCpf() == cpf && pessoa.validarSenha(senha)) {
+        pessoaCliente = pessoa;
+        break;
+      }
+    }
+    return pessoaCliente;
+  }
 }
