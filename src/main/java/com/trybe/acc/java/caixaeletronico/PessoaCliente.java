@@ -47,4 +47,8 @@ public class PessoaCliente {
     return contas.get(indice).getIdConta();
   }
   
+  public void retornarExtratoContaEspecifica(int indice) {
+    contas.get(indice).retornarExtrato();
+  }
+  
 }

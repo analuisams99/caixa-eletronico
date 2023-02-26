@@ -4,6 +4,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -49,8 +53,28 @@ class PessoaClienteTest {
   @Test
   @DisplayName("16 - Testa o método retornar o extrato de uma conta específica da pessoa cliente.")
   void retornarExtratoContaEspecificaTest() {
-    fail("Não implementado");
+    PessoaCliente pessoaCliente = new PessoaCliente("Cliente Teste", "12345678901", "=senha1=");
+    Conta conta = new Conta("Cliente Teste", pessoaCliente, new Banco());
+    conta.adicionarTransacao(3000, "Transação recebida com sucesso!");
+    pessoaCliente.adicionarConta(conta);
+	  
+    // redireciona a saída padrão (stdout) para um objeto ByteArrayOutputStream
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    PrintStream ps = new PrintStream(baos);
+    System.setOut(ps);
 
+    // chama o método que imprime a mensagem no console
+    pessoaCliente.retornarExtratoContaEspecifica(0);
+
+    // restaura a saída padrão
+    System.setOut(System.out);
+
+    // extrai a parte da mensagem desejada
+    String mensagemCompleta = baos.toString();
+    String parteDesejada = mensagemCompleta.substring(0, mensagemCompleta.indexOf('c'));
+
+    // verifica se a parte da mensagem encontrada é a esperada
+    assertEquals("Extrato da ", parteDesejada);
   }
 
   @Test
