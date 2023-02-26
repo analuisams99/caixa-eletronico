@@ -39,18 +39,18 @@ class BancoTest {
   void depositarTestTransferirFundosTestmostrarExtratoTest() {
     Banco banco = new Banco();
     PessoaCliente pessoaCliente = banco.adicionarPessoaCliente("Cliente Teste", "12345678901", "=senha1=");
-    
-    Conta conta1 = new Conta("Corrente", pessoaCliente, banco);
-    conta1.adicionarTransacao(5000.0, "Transação recebida com sucesso!");
-    
-    Conta conta2 = new Conta("Corrente", pessoaCliente, banco);
-    conta2.adicionarTransacao(1500.0, "Transação recebida com sucesso!");
 
+    Conta conta1 = new Conta("Corrente", pessoaCliente, banco);
+    Conta conta2 = new Conta("Poupança", pessoaCliente, banco);
+    
     pessoaCliente.adicionarConta(conta1);
     pessoaCliente.adicionarConta(conta2);
-
+    
+    banco.depositar(pessoaCliente, 0, 5000.0);
+    banco.depositar(pessoaCliente, 1, 1500.0);
     banco.transferirFundos(pessoaCliente, 0, 1, 500.0);
 
+    assertEquals(conta1.retornarSaldo(), 4500.0);
     assertEquals(conta2.retornarSaldo(), 2000.0);
   }
 
