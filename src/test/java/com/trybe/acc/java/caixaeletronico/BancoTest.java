@@ -37,8 +37,21 @@ class BancoTest {
   @Test
   @DisplayName("4 - Testa se o método transferir fundos está transferindo corretamente.")
   void depositarTestTransferirFundosTestmostrarExtratoTest() {
-    fail("Não implementado");
+    Banco banco = new Banco();
+    PessoaCliente pessoaCliente = banco.adicionarPessoaCliente("Cliente Teste", "12345678901", "=senha1=");
+    
+    Conta conta1 = new Conta("Corrente", pessoaCliente, banco);
+    conta1.adicionarTransacao(5000.0, "Transação recebida com sucesso!");
+    
+    Conta conta2 = new Conta("Corrente", pessoaCliente, banco);
+    conta2.adicionarTransacao(1500.0, "Transação recebida com sucesso!");
 
+    pessoaCliente.adicionarConta(conta1);
+    pessoaCliente.adicionarConta(conta2);
+
+    banco.transferirFundos(pessoaCliente, 0, 1, 500.0);
+
+    assertEquals(conta2.retornarSaldo(), 2000.0);
   }
 
   @Test

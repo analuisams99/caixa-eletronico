@@ -56,4 +56,14 @@ public class Banco {
     }
     return pessoaCliente;
   }
+  
+  /**Método de transferir fundos. */
+  public void transferirFundos(
+      PessoaCliente pessoaCliente, int daConta, int paraConta, double quantia) {
+
+    pessoaCliente.adicionarTransacaoContaEspecifica(
+        daConta, -quantia, "Transferencia realizado com sucesso!");
+    pessoaCliente.adicionarTransacaoContaEspecifica(
+        paraConta, quantia, "Transferencia recebida com sucesso!");
+  }
 }
