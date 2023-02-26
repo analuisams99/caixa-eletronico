@@ -54,4 +54,11 @@ public class PessoaCliente {
   public void adicionarTransacaoContaEspecifica(int indice, double quantia, String descricao) {
     contas.get(indice).adicionarTransacao(quantia, descricao);
   }
+  
+  /**Método que retorna o resumo de contas. */
+  public void retornarResumoContas() {
+    for (Conta conta : contas) {
+      System.out.println(conta.retornarResumoConta());
+    }
+  }
 }
