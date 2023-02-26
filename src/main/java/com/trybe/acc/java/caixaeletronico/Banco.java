@@ -41,8 +41,9 @@ public class Banco {
     return cliente;
   }
   
-  public void adicionarConta(Conta conta) {
-    contas.add(conta);
+  public void adicionarConta(String tipo, PessoaCliente pessoaCliente) {
+    Conta novaConta = new Conta(tipo, pessoaCliente, this);
+    contas.add(novaConta);
   }
   
   /**Método que valida cpf e senha da pessoa cliente. */
