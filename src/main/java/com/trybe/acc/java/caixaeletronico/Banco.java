@@ -62,6 +62,11 @@ public class Banco {
         paraConta, quantia, "Deposito realizado com sucesso!");
   }
   
+  public void sacar(PessoaCliente pessoaCliente, int daConta, double quantia) {
+    pessoaCliente.adicionarTransacaoContaEspecifica(
+        daConta, -quantia, "Saque realizado com sucesso!");
+  }
+  
   /**Método de transferir fundos. */
   public void transferirFundos(
       PessoaCliente pessoaCliente, int daConta, int paraConta, double quantia) {
@@ -70,5 +75,9 @@ public class Banco {
         daConta, -quantia, "Transferencia realizado com sucesso!");
     pessoaCliente.adicionarTransacaoContaEspecifica(
         paraConta, quantia, "Transferencia recebida com sucesso!");
+  }
+  
+  public void mostrarExtrato(PessoaCliente pessoaCliente, int conta) {
+    pessoaCliente.retornarExtratoContaEspecifica(conta);
   }
 }
