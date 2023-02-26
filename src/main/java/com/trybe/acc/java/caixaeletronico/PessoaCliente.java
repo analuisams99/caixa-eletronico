@@ -51,4 +51,7 @@ public class PessoaCliente {
     contas.get(indice).retornarExtrato();
   }
   
+  public void adicionarTransacaoContaEspecifica(int indice, double quantia, String descricao) {
+    contas.get(indice).adicionarTransacao(quantia, descricao);
+  }
 }
